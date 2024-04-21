@@ -1,0 +1,13 @@
+<div class="dialogo">
+  <div class="character-name">
+    <h2 class="name">{{ data.name }}</h2>
+  </div>
+
+  <p class="character-image">Nombre del evento:</p>
+  <p>
+    <span class="imageUrl"><img src="{{ data.imageUrl }}" /></span>
+  </p>
+  <button class="close-button" mat-button [mat-dialog-close]="true">
+    Cerrar
+  </button>
+</div>

@@ -3,7 +3,7 @@
     <ng-container matColumnDef="Imagen">
       <th mat-header-cell *matHeaderCellDef>Imagen</th>
       <td mat-cell *matCellDef="let element">
-        <button><img src="{{ element.imageUrl }}" /></button>
+        <button (click)="openDialog(element)"><img src="{{ element.imageUrl }}"></button>
       </td>
     </ng-container>
 

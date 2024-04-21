@@ -5,6 +5,8 @@ import { RickMortyCharacter } from '../rick-morty';
 
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogComponent } from '../shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-rick-morty',
@@ -27,7 +29,7 @@ export class RickMortyComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private intervalId: number | undefined;
 
-  constructor(private rickMortyService: RickMortyService) {}
+  constructor(private rickMortyService: RickMortyService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadCharacters();
@@ -69,5 +71,23 @@ export class RickMortyComponent implements OnInit, OnDestroy {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.dataSource.data = this.allCharacters.slice(startIndex, endIndex);
+  }
+
+  openDialog(character: any): void {
+    const dialogRef: MatDialogRef<any> = this.dialog.open(DialogComponent, {
+   
+      width: '400px',
+      data: character
+    });
+
+    const characterId = character.id;
+  
+    this.rickMortyService.characterDetail(characterId).subscribe(a=>{
+   
+      dialogRef.componentInstance.cantidad= a;
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Diálogo cerrado');
+    });
   }
 }
