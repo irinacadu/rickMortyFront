@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 15%;
+    padding: 1rem;
+}
+
+.rick-morty-title{
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+    max-height: 100%; 
+}

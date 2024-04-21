@@ -1,30 +1,48 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+<div class="general-div">
+  <table mat-table [dataSource]="dataSource" class="general-table">
     <ng-container matColumnDef="Imagen">
-      <th mat-header-cell *matHeaderCellDef>Imagen</th>
-      <td mat-cell *matCellDef="let element">
-        <button (click)="openDialog(element)"><img src="{{ element.imageUrl }}"></button>
+      <th mat-header-cell *matHeaderCellDef class="character-image-th">
+        Imagen
+      </th>
+      <td mat-cell *matCellDef="let element" class="character-image-td">
+        <button class="character-img-btn" (click)="openDialog(element)">
+          <img
+            class="character-img"
+            src="{{ element.imageUrl }}"
+            alt="{{ element.name }}"
+          />
+        </button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="Nombre">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <th mat-header-cell *matHeaderCellDef class="character-name-th">Name</th>
+      <td mat-cell *matCellDef="let element" class="character-name-td">
+        {{ element.name }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="Creación">
-      <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let element">{{ element.created }}</td>
+      <th mat-header-cell *matHeaderCellDef class="creation-date-th">
+        Fecha Creación
+      </th>
+      <td mat-cell *matCellDef="let element" class="creation-date-td">
+        {{ element.created | date : "dd/MM/yyyy" }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="Acciones">
-      <th mat-header-cell *matHeaderCellDef>Symbol</th>
-      <td mat-cell *matCellDef="let element">
-        <div>
-          <button>Eliminar</button>
-        </div>
-        <div>
-          <button>Modificar</button>
+      <th mat-header-cell *matHeaderCellDef class="character-actions-th">
+        Acciones
+      </th>
+      <td mat-cell *matCellDef="let element" class="character-actions-td">
+        <div class="character-actions-div">
+          <div class="delete-character-div">
+            <button class="delete-character-btn">Eliminar</button>
+          </div>
+          <div class="delete-character-div">
+            <button class="update-character-btn">Modificar</button>
+          </div>
         </div>
       </td>
     </ng-container>
@@ -33,7 +51,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator
+  <mat-paginator class="paginator"
     [pageSize]="pageSize"
     (page)="currentPage = $event.pageIndex + 1; updateDisplayedData()"
     (pageSizeChange)="handlePageSizeChange($event)"

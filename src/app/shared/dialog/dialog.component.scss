@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+.character-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 43, 43);
+    margin: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    color:whitesmoke;
+    font-family: Oswald;
+    text-transform: uppercase;
+}
+
+.character-name{
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+.dialog{
+    padding-bottom:2rem;
+}
+
+.close-btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Oswald;
+}
+
+.close-button{
+    width: 50%;
+    height: 2rem;
+    font-family: Oswald;
+    text-transform: uppercase;
+}
+
+.close-button:hover{
+  background-color: rgb(43, 43, 43);
+  color: rgb(21, 255, 0);
+  border: none;
+}

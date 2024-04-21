@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+.rick-morty-footer-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 10%;
+    
+}
+
+.rick-morty-footer{
+    max-width: 30rem; /* Asegura que la imagen no sea más ancha que el contenedor */
+    max-height: 25rem; 
+}
+.irina-casas-duarte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color:whitesmoke;
+    font-family: Oswald;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding-top: 2rem;
+}

@@ -7,13 +7,13 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from '../shared/dialog/dialog.component';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-rick-morty',
   templateUrl: './rick-morty.component.html',
   styleUrls: ['./rick-morty.component.scss'],
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule],
+  imports: [MatTableModule, MatPaginatorModule,DatePipe],
 })
 export class RickMortyComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<RickMortyCharacter>();
@@ -29,7 +29,7 @@ export class RickMortyComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private intervalId: number | undefined;
 
-  constructor(private rickMortyService: RickMortyService, private dialog: MatDialog) {}
+  constructor(private rickMortyService: RickMortyService, private dialog: MatDialog,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     this.loadCharacters();
